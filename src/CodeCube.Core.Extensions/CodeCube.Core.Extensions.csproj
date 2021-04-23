@@ -10,7 +10,6 @@
     <Copyright>Copyright Rob Lohmann 2021</Copyright>
     <PackageProjectUrl>https://github.com/roblohmann/CodeCube.Core.Extensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/roblohmann/CodeCube.Core.Extensions</RepositoryUrl>
-    <PackageIcon>nuget-icon.png</PackageIcon>
     <PackageTags>codecube codecube.core codecube.core.extensions</PackageTags>
   </PropertyGroup>
 
