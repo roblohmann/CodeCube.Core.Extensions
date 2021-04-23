@@ -4,15 +4,19 @@
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
     <Authors>Rob Lohmann</Authors>
     <Product>CodeCube.Core.Extensions</Product>
-    <PackageId>CodeCube.Core</PackageId>
+    <PackageId>CodeCube.Core.Extensions</PackageId>
     <Description>Set of extensions for the .NET Core Framework</Description>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <Copyright>Copyright Rob Lohmann 2019 - 2020</Copyright>
-    <PackageProjectUrl>https://github.com/roblohmann/CodeCube.Core</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/roblohmann/CodeCube.Core</RepositoryUrl>
+    <Copyright>Copyright Rob Lohmann 2021</Copyright>
+    <PackageProjectUrl>https://github.com/roblohmann/CodeCube.Core.Extensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/roblohmann/CodeCube.Core.Extensions</RepositoryUrl>
     <PackageIcon>nuget-icon.png</PackageIcon>
-    <PackageTags>codecube codecube.core extensions</PackageTags>
+    <PackageTags>codecube codecube.core codecube.core.extensions</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CodeCube.Core" Version="3.1.5" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Resources\Translations.Designer.cs">
