@@ -72,7 +72,7 @@ stages:
   - stage: Deploy
     displayName: 'Deploy NuGet'
     dependsOn: Build
-    condition: and(succeeded('Build'))
+    condition: succeeded('Build')
     jobs:
     - job: 'Deploy'
       steps:
