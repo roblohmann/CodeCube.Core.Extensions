@@ -3,7 +3,7 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-name: $(Version.Major).$(Version.Minor).$(Rev:r)
+name: $(Version.Major).$(Version.Minor).$(Rev:r)-alpha
 
 trigger:
   batch: true
@@ -49,21 +49,25 @@ stages:
               projects: '**/CodeCube.Core.Extensions.csproj'
               feedsToUse: 'select'
           - task: DotNetCoreCLI@2
+            displayName: 'Build'
             inputs:
               command: 'build'
               projects: '**/CodeCube.Core.Extensions.csproj'
               arguments: '--configuration $(BuildConfiguration)'
           - task: DotNetCoreCLI@2
+            displayName: 'Run Unit Tests'
             inputs:
               command: 'test'
               projects: 'test/*Tests/*.csproj'
               arguments: '--configuration $(BuildConfiguration)'
           - task: DotNetCoreCLI@2
+            displayName: 'NuGet Pack'
             inputs:
               command: 'pack'
               packagesToPack: '**/CodeCube.Core.Extensions.csproj'
               versioningScheme: 'byBuildNumber'
           - task: PublishBuildArtifacts@1
+            displayName: 'Publish Artifact'
             inputs:
               PathtoPublish: '$(Build.ArtifactStagingDirectory)'
               ArtifactName: 'drop'
@@ -72,11 +76,12 @@ stages:
   - stage: Deploy
     displayName: 'Deploy NuGet'
     dependsOn: Build
-    condition: succeeded('Build')
+    condition: succeeded('Build')    
     jobs:
     - job: 'Deploy'
       steps:
       - task: NuGetCommand@2
+        displayName: 'NuGet Push'
         inputs:
           command: 'push'
           packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
