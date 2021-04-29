@@ -10,7 +10,7 @@
     <Copyright>Copyright Rob Lohmann 2021</Copyright>
     <PackageProjectUrl>https://github.com/roblohmann/CodeCube.Core.Extensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/roblohmann/CodeCube.Core.Extensions</RepositoryUrl>
-    <PackageTags>codecube codecube.core codecube.core.extensions</PackageTags>
+    <PackageTags>codecube codecube.core codecube.core.extensions extensions datetime enumerable integer iqueryable</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

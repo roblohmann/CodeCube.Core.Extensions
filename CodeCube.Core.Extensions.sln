@@ -10,8 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{C6B84E30-83A8-41A0-8E9D-CB50C5FBDB15}"
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines.yml = azure-pipelines.yml
-		icon.png = icon.png
 		LICENSE = LICENSE
+		nuget-icon.png = nuget-icon.png
 		README.md = README.md
 	EndProjectSection
 EndProject
