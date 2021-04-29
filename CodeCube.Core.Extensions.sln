@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines.yml = azure-pipelines.yml
 		LICENSE = LICENSE
-		nuget-icon.png = nuget-icon.png
+		src\CodeCube.Core.Extensions\nuget-icon.png = src\CodeCube.Core.Extensions\nuget-icon.png
 		README.md = README.md
 	EndProjectSection
 EndProject
