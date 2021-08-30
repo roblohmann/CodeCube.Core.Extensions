@@ -17,6 +17,16 @@ namespace CodeCube.Core.Extensions.Helpers
             return TryParseEnum(value.ToString(), defaultValue);
         }
 
+        internal static TEnum? TryParseEnumOptional<TEnum>(int? value, TEnum? defaultValue) where TEnum : struct
+        {
+            return !value.HasValue ? defaultValue : TryParseEnumOptional(value.ToString(), defaultValue);
+        }
+
+        internal static TEnum TryParseEnum<TEnum>(int? value, TEnum defaultValue) where TEnum : struct
+        {
+            return !value.HasValue ? defaultValue : TryParseEnum(value.ToString(), defaultValue);
+        }
+
         /// <summary>
         /// Try to parse a string value to the provided enum.
         /// </summary>
