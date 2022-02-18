@@ -124,7 +124,7 @@ namespace CodeCube.Core.Extensions
         }
 
         /// <summary>
-        /// method for converting a System.DateTime value to a UNIX Timestamp
+        /// Returns the provided DateTime as UNIX timestamp
         /// </summary>
         /// <param name="value">date to convert</param>
         public static double ConvertToTimestamp(this DateTime value)
@@ -135,6 +135,26 @@ namespace CodeCube.Core.Extensions
 
             //return the total seconds (which is a UNIX timestamp)
             return span.TotalSeconds;
+        }
+
+        /// <summary>
+        /// Returns the Date from the provided DateTime in the ISO8601 format.
+        /// </summary>
+        /// <param name="dateTime">The DateTime to convert.</param>
+        /// <returns>The Date in ISO8601 format.</returns>
+        public static string ToISODate(this DateTime dateTime)
+        {
+            return dateTime.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// Returns the DateTime in the ISO8601 format.
+        /// </summary>
+        /// <param name="dateTime">The DateTime to convert.</param>
+        /// <returns>The date and time in ISO8601 format.</returns>
+        public static string ToISODateTime(this DateTime dateTime)
+        {
+            return dateTime.ToString("s", CultureInfo.InvariantCulture);
         }
     }
 }
