@@ -44,18 +44,6 @@ namespace CodeCube.Core.Extensions
         /// <summary>
         /// Perform the provided action for each item in the collection.
         /// </summary>
-        /// <typeparam name="T">The type in the IEnumerable</typeparam>
-        /// <param name="items">The IEnumerable with items.</param>
-        /// <param name="action">The action to perform.</param>
-        [Obsolete("Use the ForEach Extension")]
-        public static void Each<T>(this IEnumerable<T> items, Action<T> action)
-        {
-            ForEach(items, action);
-        }
-
-        /// <summary>
-        /// Perform the provided action for each item in the collection.
-        /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="enumeration"></param>
         /// <param name="action"></param>
@@ -64,25 +52,6 @@ namespace CodeCube.Core.Extensions
             foreach (T item in enumeration)
             {
                 action(item);
-            }
-        }
-
-        /// <summary>
-        /// Return the collection distincted by the provided selector.
-        /// </summary>
-        /// <param name="source">The source collection.</param>
-        /// <param name="keySelector">The selector to distinct the collection</param>
-        /// <returns></returns>
-        public static IEnumerable<TSource> DistinctBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
-        {
-            var seenKeys = new HashSet<TKey>();
-
-            foreach (var element in source)
-            {
-                if (seenKeys.Add(keySelector(element)))
-                {
-                    yield return element;
-                }
             }
         }
 
