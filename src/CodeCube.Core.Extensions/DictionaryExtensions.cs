@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 
 namespace CodeCube.Core.Extensions
 {
@@ -50,6 +51,21 @@ namespace CodeCube.Core.Extensions
                     target.Add(item.Key, item.Value);
                 }
             }
+        }
+
+        /// <summary>
+        /// Extension method to execute a where on a dictionary and return the result as a dictionary with the
+        /// same type of key van value.
+        /// </summary>
+        /// <typeparam name="TKey">The type of the key.</typeparam>
+        /// <typeparam name="TValue">The type of the value.</typeparam>
+        /// <param name="instance">The dictionary to filter.</param>
+        /// <param name="predicate">The actual filter.</param>
+        /// <returns>Dictionary of type <see cref="Dictionary{TKey,TValue}"/></returns>
+        public static Dictionary<TKey, TValue> Where<TKey, TValue>(this Dictionary<TKey, TValue> instance, Func<KeyValuePair<TKey, TValue>, bool> predicate)
+        {
+            return Enumerable.Where(instance, predicate)
+                             .ToDictionary(item => item.Key, item => item.Value);
         }
     }
 }
