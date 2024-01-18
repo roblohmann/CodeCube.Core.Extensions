@@ -62,7 +62,7 @@ namespace CodeCube.Core.Extensions
         /// <param name="instance">The dictionary to filter.</param>
         /// <param name="predicate">The actual filter.</param>
         /// <returns>Dictionary of type <see cref="Dictionary{TKey,TValue}"/></returns>
-        public static Dictionary<TKey, TValue> Where<TKey, TValue>(this Dictionary<TKey, TValue> instance, Func<KeyValuePair<TKey, TValue>, bool> predicate)
+        public static Dictionary<TKey, TValue> Filter<TKey, TValue>(this Dictionary<TKey, TValue> instance, Func<KeyValuePair<TKey, TValue>, bool> predicate)
         {
             return Enumerable.Where(instance, predicate)
                              .ToDictionary(item => item.Key, item => item.Value);
