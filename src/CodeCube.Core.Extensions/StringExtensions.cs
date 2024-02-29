@@ -87,8 +87,10 @@ namespace CodeCube.Core.Extensions
         /// </summary>
         /// <param name="input">The text to search trough</param>
         /// <returns>The original string with the value stripped</returns>
-        public static string StripTags(this string input)
+        public static string? StripTags(this string input)
         {
+            if (string.IsNullOrWhiteSpace(input)) return null;
+            
             var regex = new Regex(@"(<\/?[^>]+>)");
             var str = input;
 
@@ -105,8 +107,10 @@ namespace CodeCube.Core.Extensions
         /// <param name="input">The text to search trough</param>
         /// <param name="allowedTags">The html-tags allowed in the string. Can be left out.</param>
         /// <returns>The original string with the value stripped</returns>
-        public static string StripTags(this string input, string[] allowedTags)
+        public static string? StripTags(this string input, string[] allowedTags)
         {
+            if (string.IsNullOrWhiteSpace(input)) return null;
+            
             var regex = new Regex(@"(<\/?[^>]+>)");
             var str = input;
             foreach (Match match in regex.Matches(input))
@@ -149,8 +153,10 @@ namespace CodeCube.Core.Extensions
         /// </summary>
         /// <param name="inputString"></param>
         /// <returns></returns>
-        public static string StripHtml(this string inputString)
+        public static string? StripHtml(this string inputString)
         {
+            if (string.IsNullOrWhiteSpace(inputString)) return null;
+            
             return RegularExpressions.Html.Replace(inputString, string.Empty);
         }
 
