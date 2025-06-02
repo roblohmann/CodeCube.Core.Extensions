@@ -1,13 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
     <Authors>Rob Lohmann</Authors>
     <Product>CodeCube.Core.Extensions</Product>
     <PackageId>CodeCube.Core.Extensions</PackageId>
     <Description>Set of extensions for the .NET Core Framework</Description>
-    <PackageReleaseNotes></PackageReleaseNotes>
-    <Copyright>Copyright Rob Lohmann 2021</Copyright>
+    <Copyright>Copyright Rob Lohmann 2021 - 2025</Copyright>
     <PackageProjectUrl>https://github.com/roblohmann/CodeCube.Core.Extensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/roblohmann/CodeCube.Core.Extensions</RepositoryUrl>
     <PackageIcon>nuget-icon.png</PackageIcon>
