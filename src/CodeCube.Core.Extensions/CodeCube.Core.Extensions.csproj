@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
     <Authors>Rob Lohmann</Authors>
     <Product>CodeCube.Core.Extensions</Product>
     <PackageId>CodeCube.Core.Extensions</PackageId>
@@ -19,7 +19,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CodeCube.Core" Version="4.0.4" />
+    <PackageReference Include="CodeCube.Core" Version="4.0.5" />
+    <PackageReference Include="System.Text.Json" Version="9.0.6" />
   </ItemGroup>
 
   <ItemGroup>
