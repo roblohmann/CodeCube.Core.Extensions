@@ -24,6 +24,7 @@ namespace CodeCube.Core.Extensions
         }
 
 #if NETSTANDARD2_1
+        [Obsolete("Use DeserializeToObject method")]
         public static T DeserializeFromCamelCase<T>(this string? json)
         {
             if (string.IsNullOrWhiteSpace(json)) return default;
@@ -33,9 +34,25 @@ namespace CodeCube.Core.Extensions
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             }) ?? throw new InvalidOperationException();
         }
+
+        public static T DeserializeToObject<T>(this string? json, bool useCamelCase = true)
+        {
+            if (string.IsNullOrWhiteSpace(json)) return default;
+
+            if (useCamelCase)
+            {
+                return JsonSerializer.Deserialize<T>(json, new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                }) ?? throw new InvalidOperationException();
+            }
+
+            return JsonSerializer.Deserialize<T>(json) ?? throw new InvalidOperationException();
+        }
 #endif
 
 #if NET6_0_OR_GREATER
+    [Obsolete("Use DeserializeToObject method")]
     public static T? DeserializeFromCamelCase<T>(this string? json)
     {
         if (string.IsNullOrWhiteSpace(json)) return default;
@@ -44,6 +61,21 @@ namespace CodeCube.Core.Extensions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
         });
+    }
+
+    public static T? DeserializeToObject<T>(this string? json, bool useCamelCase = true)
+    {
+        if (string.IsNullOrWhiteSpace(json)) return default;
+
+        if(useCamelCase)
+        {
+            return JsonSerializer.Deserialize<T>(json, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+        }
+
+        return JsonSerializer.Deserialize<T>(json);
     }
 #endif
     }
