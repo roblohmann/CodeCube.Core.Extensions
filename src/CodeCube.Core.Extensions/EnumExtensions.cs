@@ -4,6 +4,9 @@ using System.ComponentModel;
 
 namespace CodeCube.Core.Extensions
 {
+    /// <summary>
+    /// Class with extensionmethods for enums.
+    /// </summary>
     public static class EnumExtensions
     {
         /// <summary>
@@ -24,14 +27,14 @@ namespace CodeCube.Core.Extensions
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="enumValue"></param>
-        /// <returns></returns>
-        public static string GetDescription<T>(this T enumValue) where T : struct, IConvertible
+        /// <returns>The description of the enum value, or the name of the value when no description is set. Returns <c>null</c> when <typeparamref name="T"/> is not an enum.</returns>
+        public static string? GetDescription<T>(this T enumValue) where T : struct, IConvertible
         {
             if (!typeof(T).IsEnum)
                 return null;
 
-            var description = enumValue.ToString();
-            var fieldInfo = enumValue.GetType().GetField(enumValue.ToString());
+            var description = enumValue.ToString() ?? string.Empty;
+            var fieldInfo = enumValue.GetType().GetField(description);
 
             if (fieldInfo != null)
             {

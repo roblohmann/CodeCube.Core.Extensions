@@ -2,6 +2,9 @@
 
 namespace CodeCube.Core.Extensions
 {
+    /// <summary>
+    /// Class with extensionmethods for integers.
+    /// </summary>
     public static class IntegerExtensions
     {
         /// <summary>

@@ -6,6 +6,9 @@ using CodeCube.Core.Extensions.Helpers;
 
 namespace CodeCube.Core.Extensions
 {
+    /// <summary>
+    /// Class with extensionmethods for strings.
+    /// </summary>
     public static class StringExtensions
     {
         /// <summary>
@@ -180,8 +183,8 @@ namespace CodeCube.Core.Extensions
         /// <param name="amountOfCharacters">The amount of characters you want returned, default 300</param>
         /// <param name="addSuffix">Boolean indicating wether three dots should be added as suffix, default true</param>
         /// <param name="keepFullWords">Boolean indicating wether the shortended string should end with an full wordt, default true</param>
-        /// <returns>An shortened string</returns>
-        public static string ShortenText(this string text, int amountOfCharacters = 300, bool addSuffix = true, bool keepFullWords = true)
+        /// <returns>An shortened string, or <c>null</c> when the provided text is <c>null</c>.</returns>
+        public static string? ShortenText(this string? text, int amountOfCharacters = 300, bool addSuffix = true, bool keepFullWords = true)
         {
             // replaces the truncated string to a ...
             var suffix = addSuffix ? "..." : string.Empty;

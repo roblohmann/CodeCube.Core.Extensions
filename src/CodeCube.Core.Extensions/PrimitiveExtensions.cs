@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace CodeCube.Core.Extensions
 {
+    /// <summary>
+    /// Class with extensionmethods for primitive types and objects.
+    /// </summary>
     public static class PrimitiveExtensions
     {
         /// <summary>
@@ -54,9 +57,9 @@ namespace CodeCube.Core.Extensions
         /// <summary>
         /// Get's the dictionary from the provided type.
         /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static Type GetDictionaryType(this Type type)
+        /// <param name="type">The type to inspect.</param>
+        /// <returns>The <see cref="IDictionary{TKey,TValue}"/> type implemented by the provided type, or <c>null</c> when the type is not a dictionary.</returns>
+        public static Type? GetDictionaryType(this Type type)
         {
             if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IDictionary<,>))
                 return type;

@@ -26,7 +26,7 @@ namespace CodeCube.Core.Extensions
                 if (kvp.Value == null) continue;
 
                 var value = kvp.Value.ToString();
-                nameValueCollection.Add(kvp.Key.ToString(), value);
+                nameValueCollection.Add(kvp.Key?.ToString(), value);
             }
 
             return nameValueCollection;
@@ -37,7 +37,7 @@ namespace CodeCube.Core.Extensions
         /// </summary>
         /// <param name="target">The target collection.</param>
         /// <param name="source">The source collection.</param>
-        public static void AddRange<T, S>(this Dictionary<T, S> target, Dictionary<T, S> source)
+        public static void AddRange<T, S>(this Dictionary<T, S> target, Dictionary<T, S> source) where T : notnull
         {
             if (source == null)
             {
@@ -62,7 +62,7 @@ namespace CodeCube.Core.Extensions
         /// <param name="instance">The dictionary to filter.</param>
         /// <param name="predicate">The actual filter.</param>
         /// <returns>Dictionary of type <see cref="Dictionary{TKey,TValue}"/></returns>
-        public static Dictionary<TKey, TValue> Filter<TKey, TValue>(this Dictionary<TKey, TValue> instance, Func<KeyValuePair<TKey, TValue>, bool> predicate)
+        public static Dictionary<TKey, TValue> Filter<TKey, TValue>(this Dictionary<TKey, TValue> instance, Func<KeyValuePair<TKey, TValue>, bool> predicate) where TKey : notnull
         {
             return Enumerable.Where(instance, predicate)
                              .ToDictionary(item => item.Key, item => item.Value);

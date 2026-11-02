@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace CodeCube.Core.Extensions
 {
+    /// <summary>
+    /// Class with extensionmethods for <see cref="IEnumerable{T}"/>.
+    /// </summary>
     public static class EnumerableExtensions
     {
         /// <summary>
